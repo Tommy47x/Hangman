@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hangman</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="script.js"></script>
+</head>
+
+<body>
+
+  <body class="bg-light">
+    <div class="container py-5 text-center">
+      <h1 class="mb-4">Hangman Game</h1>
+      <button type="button" class="btn btn-primary" onClick="startGame()">Start</button>
+      <ul></ul>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h2 class="card-title" id="word-container"> </h2>
+              </h2>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-body">
+              <p class="card-text" id="guesses">
+                <input id="input-text">
+                <button id="guess-button" class="btn btn-primary" onclick="guessLetter()">Guess</button>
+
+              <p class="card-text" id="attempts">
+                <!-- Remaining attempts will be displayed here -->
+              </p>
+              <p id="result"></p>
+              <ul></ul>
+
+            </div>
+          </div>
+          <div class="card mb-3">
+            <p id="letters-used">Used letters: </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
