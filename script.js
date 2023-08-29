@@ -2,13 +2,12 @@ let copyLetters; // Global variables defined here
 let remainingAttempts = 7;
 let randomWord = "";
 let guessedWord = "";
-let resultContainer = null;
+let resultContainer = "";
 let wordContainer = null;
 let attemptsContainer = null;
-
+let restrictionInput = "";
 
 function startGame() {
-
   copyLetters = document.getElementById("letters-used");
   copyLetters.textContent = "Used letters:"; // Reset letters
   remainingAttempts = 7; //Reset attempts
@@ -28,14 +27,13 @@ function startGame() {
 }
 
 function guessLetter() {
-
+  restrictionInput = document.getElementById("alerting");
   //Input + Restrictions
   let guessedLetterInput = document.getElementById("input-text");
   let guessedLetter = guessedLetterInput.value.toLowerCase();
   if (guessedLetter.length !== 1 || !guessedLetter.match(/[a-z]/i)) {
-    alert("Please enter a single valid letter.");
+    restrictionInput.textContent = "Please enter a single valid letter";
     guessedLetterInput.value = "";
-    return;
   }
   let lettersUsed = document.getElementById("letters-used");
   let found = false; // For decreasing attempts
@@ -44,10 +42,12 @@ function guessLetter() {
     if (randomWord[i] === guessedLetter) {
       updatedGuessedWord += guessedLetter;
       found = true;
+      restrictionInput.textContent = " ";
     } else {
       updatedGuessedWord += guessedWord[i];
     }
   }
+
   if (updatedGuessedWord === randomWord) { // Message Succes
     document.getElementById
       ("guess-button").disabled = true;
