@@ -53,14 +53,14 @@ function updateGame(guessedLetter) {// Function that verifies letters
     document.getElementById("result").innerHTML = `
       <p class="text-danger">Game over! The word was "${randomWord}". Press 'Start' to try again!</p>`;
   }
-
+  //On-Click Update
   guessedWord = updatedGuessedWord; // Var. for changing in-page letters, to match the word
   document.getElementById("word-container").textContent = guessedWord.split("").join(" "); // In-page letters
   document.getElementById("attempts").textContent = `Remaining attempts: ${remainingAttempts}`; // Attempts
 }
 
-function guessLetter() { // Final function that enables all functions (Exception: StartGame)
-  const guessedLetterInput = document.getElementById("input-text"); 
+function guessLetter() { // Final function that enables 'validateInput' and 'updateGame' functions on-click (Exception: StartGame)
+  const guessedLetterInput = document.getElementById("input-text");
   const guessedLetter = guessedLetterInput.value.toLowerCase();
 
   if (validateInput(guessedLetter)) {
